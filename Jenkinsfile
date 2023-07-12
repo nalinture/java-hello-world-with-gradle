@@ -13,7 +13,7 @@ pipeline {
          }
          stage('Build') {
              steps {   
-                  sh 'gradle app:installDebug'
+                  sh './gradle app:installDebug'
                   sh './gradlew clean build'
              }              
              post {
