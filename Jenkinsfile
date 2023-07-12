@@ -13,7 +13,7 @@ pipeline {
          }
          stage('Build') {
              steps {   
-                  sh 'chmod +x gradlew'
+                  sh 'chmod +x gradle'
                   sh './gradle app:installDebug'
                   sh './gradlew clean build'
              }              
