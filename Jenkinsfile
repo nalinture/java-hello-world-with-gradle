@@ -6,13 +6,14 @@ pipeline {
                   deleteDir()                  
              }
          }
-         stage('Clone Project') {
+         stage('Checkout') {
              steps {                  
                   checkout scm                  
              }
          }
          stage('Build') {
-             steps {                  
+             steps {   
+                  sh 'gradle app:installDebug'
                   sh './gradlew clean build'
              }              
              post {
