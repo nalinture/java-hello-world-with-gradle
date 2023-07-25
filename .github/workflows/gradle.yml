@@ -1,0 +1,36 @@
+name: pvs/gradle
+on:
+  workflow_dispatch:
+jobs:
+  Clean_Workspace:
+    name: Clean Workspace
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3.5.0
+    - name: delete directory
+      shell: bash
+      run: rm -rf "`pwd`"
+  Checkout:
+    runs-on: ubuntu-latest
+    needs: Clean_Workspace
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3.5.0
+    - name: checkout
+      uses: actions/checkout@v3.5.0
+  Build:
+    runs-on: ubuntu-latest
+    needs: Checkout
+    steps:
+    - name: checkout
+      uses: actions/checkout@v3.5.0
+    - name: sh
+      shell: bash
+      run: java --version
+    - name: sh
+      shell: bash
+      run: gradle --version
+    - name: sh
+      shell: bash
+      run: gradle clean build
